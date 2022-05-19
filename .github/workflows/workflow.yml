@@ -32,7 +32,7 @@ jobs:
         run: npm install && cp dist/test-angular-deploy/index.html dist/test-angular-deploy/404.html
       
       - name: Deploy
-        uses: JamesIves/github-page-deploy-action@4.1.1
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: master
           folder: test-angular-deploy/dist/test-angular-deploy
