@@ -32,7 +32,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build --base-href /test-angular-deploy/
+        run: npm run build  --configuration github --base-href /test-angular-deploy/
       
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
