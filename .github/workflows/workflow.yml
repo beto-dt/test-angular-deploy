@@ -1,11 +1,13 @@
-
 name: Github Pages Deploy 
 
 on:
   push:
     branches:
       - '!master'
-      
+  pull_request:
+    branches:
+      - 'master'
+
 jobs:
   build:
     name: GitHub Actions - Tests
@@ -26,10 +28,12 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Install and build
-        run: npm install && cp dist/test-angular-deploy/index.html dist/test-angular-deploy/404.html
+        run: npm install
       
       - name: Deploy
-        uses: JamesIves/github-page-deploy-action@4.1.1
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN_KEY }}
           branch: master
-          folder: test-angular-deploy/dist/test-angular-deploy
+          folder: ./dist/test-angular
+
