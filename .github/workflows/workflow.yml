@@ -36,4 +36,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN_KEY }}
           branch: master
-          folder: test-angular-deploy/dist/test-angular
+          folder: /dist/test-angular
