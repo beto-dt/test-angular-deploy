@@ -28,13 +28,16 @@ jobs:
           always-auth: true
           registry-url: https://registry.npmjs.org
 
-      - name: Install and build
+      - name: Install 
         run: npm install
+
+      - name: Build
+        run: npm run build 
       
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN_KEY }}
           branch: main
-          folder: ./dist/test-angular
+          folder: dist/test-angular
 
