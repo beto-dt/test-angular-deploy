@@ -29,10 +29,10 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Install and build
-        run: npm install && cp dist/test-angular-deploy/index.html
+        run: npm install && cp dist/test-angular/index.html
       
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: master
-          folder: test-angular-deploy/dist/test-angular-deploy
+          folder: test-angular-deploy/dist/test-angular
