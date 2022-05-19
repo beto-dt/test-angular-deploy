@@ -1,0 +1,27 @@
+name: Github Pages Deploy 
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+
+    strategy:
+      matrix:
+        node-version:[16.14.2],
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v1
+      
+       - name: Install and build
+         working-directory: ./test-angular-deploy
+         run: npm install && cp dist/test-angular-deploy/index.html dist/test-angular-deploy/404.html
+
+       - name: Deploy
+         uses: JamesIves/github-page-deploy-action@4.1.1
+         with:
+           branch: master
+           folder: test-angular-deploy/dist/test-angular-deploy
